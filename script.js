@@ -19,7 +19,7 @@ function enlargeYesButton() {
 // Make the "No" button steady (it stays in the same place)
 function steadyNoButton() {
   no_button.style.position = 'fixed';
-  no_button.style.bottom = '80px'; // Position the "No" button above the bottom of the page (adjustable)
+  no_button.style.bottom = '140px'; // Position the "No" button lower (adjustable)
   no_button.style.left = '50%';
   no_button.style.transform = 'translateX(-50%)'; // Center it horizontally
 }
@@ -68,7 +68,7 @@ yes_button.addEventListener('click', function() {
 
 // Ensure that the buttons container stays in place and doesn't move
 btnContainer.style.position = 'fixed'; // Fixing the position of the buttons container
-btnContainer.style.bottom = '40px'; // Place the buttons above the "Can you be my Valentine?" text
+btnContainer.style.bottom = '180px'; // Move the button container lower, to leave space between text and buttons
 btnContainer.style.left = '50%'; // Center the container horizontally
 btnContainer.style.transform = 'translateX(-50%)'; // Adjust for perfect centering
 
