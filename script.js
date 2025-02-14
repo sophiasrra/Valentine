@@ -10,24 +10,18 @@ var mainContainer = document.querySelector('.main-container');
 var rejects = ["No", "Are you sure?", "Really Sure?", "Are you positive?", "Are you absolutely sure?", "Pookie please", "Just think about it", "If you say no, I'll be really sad", "I'll be very very sad", "I'll be very very very sad", "I'll be very very very very sad", "Ok fine, I'll stop asking...", "Just kidding, PLEASE SAY YES", "I'll be very very very very very sad", "You're breaking my heart ;(", "Give me a chance", "I REALLY want you", "Pleaseeee...", "I will cry if you say no TT", "We will have lots of fun", "Pretty please?", "I know you are lying", "I'll be REALLY sad ;(", "Don't be shy", "You're making me sad :('", "Think about it again", "Plsssss", "Think harder..", "Think hardest...", "Pretty pleaseee TT", "Just say you hate me...", "Pretty prettie pwetti pwease...", "LAST chance!!!", "I'll really stop asking..", "Don't test me >:(", "HMPH Fine!!", "JUST KIDDING TT", "I BEG U 🙏", "Just say YES"];
 var rejectCounts = 1;
 
-// Function to move the "No" button steadily
-function moveNoButton() {
-  // Get the button's dimensions
-  var buttonWidth = no_button.offsetWidth;
-  var buttonHeight = no_button.offsetHeight;
+// Function to make the "Yes" button bigger
+function enlargeYesButton() {
+  yes_button.style.transform = 'scale(1.2)';
+  yes_button.style.transition = 'transform 0.3s'; // Smooth transition
+}
 
-  // Get the available window dimensions
-  var windowWidth = window.innerWidth;
-  var windowHeight = window.innerHeight;
-
-  // Generate random X/Y positions within the window limits, accounting for button size
-  var randomX = Math.random() * (windowWidth - buttonWidth); // Random X position within bounds
-  var randomY = Math.random() * (windowHeight - buttonHeight); // Random Y position within bounds
-
-  // Apply the new random position without rotation
-  no_button.style.position = 'absolute';
-  no_button.style.left = randomX + 'px';
-  no_button.style.top = randomY + 'px';
+// Make the "No" button steady (it stays in the same place)
+function steadyNoButton() {
+  no_button.style.position = 'fixed';
+  no_button.style.bottom = '80px'; // Position the "No" button above the bottom of the page (adjustable)
+  no_button.style.left = '50%';
+  no_button.style.transform = 'translateX(-50%)'; // Center it horizontally
 }
 
 no_button.addEventListener('click', function() {
@@ -38,8 +32,11 @@ no_button.addEventListener('click', function() {
     rejectCounts = 0;
   }
 
-  // Move the "No" button to a new position
-  moveNoButton();
+  // Make the "Yes" button bigger
+  enlargeYesButton();
+  
+  // Keep the "No" button steady
+  steadyNoButton();
 });
 
 yes_button.addEventListener('click', function() {
@@ -57,7 +54,7 @@ yes_button.addEventListener('click', function() {
 
   // Create the smaller text block (below the existing text)
   var smallText = document.createElement('p');
-  smallText.textContent = 'HAPPY VALENTINES DAY ML! I LOVE YOU SO MUCH MUWAHH - topy <3';
+  smallText.textContent = 'HAPPY VALENTINES ML! I LOVE YOU SO MUCH MUWAHH - topy <3';
 
   // Style the smaller text
   smallText.style.fontSize = '20px';
@@ -71,7 +68,7 @@ yes_button.addEventListener('click', function() {
 
 // Ensure that the buttons container stays in place and doesn't move
 btnContainer.style.position = 'fixed'; // Fixing the position of the buttons container
-btnContainer.style.bottom = '20px'; // Set the buttons to stay at the bottom of the window
+btnContainer.style.bottom = '40px'; // Place the buttons above the "Can you be my Valentine?" text
 btnContainer.style.left = '50%'; // Center the container horizontally
 btnContainer.style.transform = 'translateX(-50%)'; // Adjust for perfect centering
 
