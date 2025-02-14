@@ -38,11 +38,6 @@ no_button.addEventListener('click', function() {
     rejectCounts = 0;
   }
 
-  // Update font size (optional, if you still want this behavior)
-  var newFontSize = (parseFloat(yesCurrentFontSize) + 40) + 'px';
-  yesCurrentFontSize = newFontSize;
-  yes_button.style.fontSize = newFontSize;
-
   // Move the "No" button to a new position
   moveNoButton();
 });
