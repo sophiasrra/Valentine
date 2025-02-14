@@ -57,7 +57,7 @@ yes_button.addEventListener('click', function() {
 
   // Create the smaller text block (below the existing text)
   var smallText = document.createElement('p');
-  smallText.textContent = 'I LOVE YOU SO MUCH MUWAHH - topy <3';
+  smallText.textContent = 'HAPPY VALENTINES DAY ML! I LOVE YOU SO MUCH MUWAHH - topy <3';
 
   // Style the smaller text
   smallText.style.fontSize = '20px';
