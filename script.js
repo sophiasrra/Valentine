@@ -10,6 +10,26 @@ var mainContainer = document.querySelector('.main-container');
 var rejects = ["No", "Are you sure?", "Really Sure?", "Are you positive?", "Are you absolutely sure?", "Pookie please", "Just think about it", "If you say no, I'll be really sad", "I'll be very very sad", "I'll be very very very sad", "I'll be very very very very sad", "Ok fine, I'll stop asking...", "Just kidding, PLEASE SAY YES", "I'll be very very very very very sad", "You're breaking my heart ;(", "Give me a chance", "I REALLY want you", "Pleaseeee...", "I will cry if you say no TT", "We will have lots of fun", "Pretty please?", "I know you are lying", "I'll be REALLY sad ;(", "Don't be shy", "You're making me sad :('", "Think about it again", "Plsssss", "Think harder..", "Think hardest...", "Pretty pleaseee TT", "Just say you hate me...", "Pretty prettie pwetti pwease...", "LAST chance!!!", "I'll really stop asking..", "Don't test me >:(", "HMPH Fine!!", "JUST KIDDING TT", "I BEG U 🙏", "Just say YES"];
 var rejectCounts = 1;
 
+// Function to move the "No" button steadily
+function moveNoButton() {
+  // Get the button's dimensions
+  var buttonWidth = no_button.offsetWidth;
+  var buttonHeight = no_button.offsetHeight;
+
+  // Get the available window dimensions
+  var windowWidth = window.innerWidth;
+  var windowHeight = window.innerHeight;
+
+  // Generate random X/Y positions within the window limits, accounting for button size
+  var randomX = Math.random() * (windowWidth - buttonWidth); // Random X position within bounds
+  var randomY = Math.random() * (windowHeight - buttonHeight); // Random Y position within bounds
+
+  // Apply the new random position without rotation
+  no_button.style.position = 'absolute';
+  no_button.style.left = randomX + 'px';
+  no_button.style.top = randomY + 'px';
+}
+
 no_button.addEventListener('click', function() {
   // Update text content
   no_button.textContent = rejects[rejectCounts];
@@ -23,34 +43,8 @@ no_button.addEventListener('click', function() {
   yesCurrentFontSize = newFontSize;
   yes_button.style.fontSize = newFontSize;
 
-  // Get the button's dimensions
-  var buttonWidth = no_button.offsetWidth;
-  var buttonHeight = no_button.offsetHeight;
-
-  // Get the available window dimensions
-  var windowWidth = window.innerWidth;
-  var windowHeight = window.innerHeight;
-
-  // Generate random X/Y positions within the window limits, accounting for button size
-  var randomX = Math.random() * (windowWidth - buttonWidth); // Random X position within bounds
-  var randomY = Math.random() * (windowHeight - buttonHeight); // Random Y position within bounds
-
-  // Apply the new random position
-  no_button.style.position = 'absolute';
-  no_button.style.left = randomX + 'px';
-  no_button.style.top = randomY + 'px';
-
-  // Generate a random angle between 0 and 360 degrees
-  var randomAngle = Math.random() * 360; // Random angle
-
-  // Apply the random position and rotation using transform
-  no_button.style.position = 'absolute';
-  no_button.style.left = randomX + 'px';
-  no_button.style.top = randomY + 'px';
-  no_button.style.transform = 'rotate(' + randomAngle + 'deg)'; // Rotate by the random angle
-
-  // Update direction if needed
-  updateDir();
+  // Move the "No" button to a new position
+  moveNoButton();
 });
 
 yes_button.addEventListener('click', function() {
@@ -78,7 +72,6 @@ yes_button.addEventListener('click', function() {
 
   // Insert the smaller text below the existing text element
   text.parentNode.insertBefore(smallText, text.nextSibling);
-
 });
 
 function updateDir() {
