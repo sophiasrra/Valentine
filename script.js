@@ -46,7 +46,7 @@ yes_button.addEventListener('click', function() {
   var music = document.getElementById('celebrationMusic');
   music.play(); // Play the audio
 
-  gif.src= 'love-dog.gif'
+  gif.src = 'love-dog.gif';
   text.textContent = 'Yayyy baby my valentine!!';
 
   no_button.style.display = 'none';
@@ -58,7 +58,7 @@ yes_button.addEventListener('click', function() {
   // Create the smaller text block (below the existing text)
   var smallText = document.createElement('p');
   smallText.textContent = 'I LOVE YOU SO MUCH MUWAHH - topy <3';
-  
+
   // Style the smaller text
   smallText.style.fontSize = '20px';
   smallText.style.color = '#ff69b4'; // Pink color
@@ -68,6 +68,12 @@ yes_button.addEventListener('click', function() {
   // Insert the smaller text below the existing text element
   text.parentNode.insertBefore(smallText, text.nextSibling);
 });
+
+// Ensure that the buttons container stays in place and doesn't move
+btnContainer.style.position = 'fixed'; // Fixing the position of the buttons container
+btnContainer.style.bottom = '20px'; // Set the buttons to stay at the bottom of the window
+btnContainer.style.left = '50%'; // Center the container horizontally
+btnContainer.style.transform = 'translateX(-50%)'; // Adjust for perfect centering
 
 function updateDir() {
   if (btnContainer.offsetWidth > windowWidth) {
