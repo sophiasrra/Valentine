@@ -16,25 +16,26 @@ function enlargeYesButton() {
   yes_button.style.transition = 'transform 0.3s'; // Smooth transition
 }
 
-// Make the "No" button steady (it stays in the same place)
+// Function to make the "No" button steady (it stays in the same place)
 function steadyNoButton() {
-  no_button.style.position = 'fixed';
-  no_button.style.bottom = '140px'; // Position the "No" button lower (adjustable)
-  no_button.style.left = '50%';
-  no_button.style.transform = 'translateX(-50%)'; // Center it horizontally
+  no_button.style.position = 'fixed'; // Fixing the position
+  no_button.style.bottom = '150px'; // Position the "No" button a little lower
+  no_button.style.left = '50%'; // Center horizontally
+  no_button.style.transform = 'translateX(-50%)'; // Center it properly
+  no_button.style.transition = 'none'; // No transition to avoid movement
 }
 
 no_button.addEventListener('click', function() {
-  // Update text content
+  // Update text content for the "No" button
   no_button.textContent = rejects[rejectCounts];
   rejectCounts += 1;
   if (rejectCounts >= rejects.length) {
     rejectCounts = 0;
   }
 
-  // Make the "Yes" button bigger
+  // Make the "Yes" button bigger when the "No" button is clicked
   enlargeYesButton();
-  
+
   // Keep the "No" button steady
   steadyNoButton();
 });
@@ -55,7 +56,7 @@ yes_button.addEventListener('click', function() {
   // Create the smaller text block (below the existing text)
   var smallText = document.createElement('p');
   smallText.textContent = 'HAPPY VALENTINES ML! I LOVE YOU SO MUCH MUWAHH - topy <3';
-
+  
   // Style the smaller text
   smallText.style.fontSize = '20px';
   smallText.style.color = '#ff69b4'; // Pink color
@@ -66,11 +67,11 @@ yes_button.addEventListener('click', function() {
   text.parentNode.insertBefore(smallText, text.nextSibling);
 });
 
-// Ensure that the buttons container stays in place and doesn't move
+// Fix the position of the buttons container
 btnContainer.style.position = 'fixed'; // Fixing the position of the buttons container
-btnContainer.style.bottom = '180px'; // Move the button container lower, to leave space between text and buttons
+btnContainer.style.bottom = '180px'; // Position the button container lower, adjust this value as needed
 btnContainer.style.left = '50%'; // Center the container horizontally
-btnContainer.style.transform = 'translateX(-50%)'; // Adjust for perfect centering
+btnContainer.style.transform = 'translateX(-50%)'; // Center it perfectly
 
 function updateDir() {
   if (btnContainer.offsetWidth > windowWidth) {
